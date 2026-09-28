@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>经济学原理自学手册</title>
+<meta name="description" content="曼昆《经济学原理》第 8 版章节知识点库：书中定义、通俗解释、关联图谱与记忆卡片。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f2329'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='sans-serif'%3E经%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --kimi-font-sans: -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --kimi-font-mono: Consolas, "Courier New", monospace;
+    --kimi-color-text-primary: #1f2329;
+    --kimi-color-text-secondary: #5a6169;
+    --kimi-color-text-tertiary: #8a9199;
+    --kimi-color-text-quaternary: #b3b9c0;
+    --kimi-color-surface: #ffffff;
+    --kimi-color-surface-muted: #f4f5f7;
+    --kimi-color-surface-raised: #ffffff;
+    --kimi-color-surface-strong: #e8eaed;
+    --kimi-color-border: #dfe2e6;
+    --kimi-color-danger: #e5484d;
+    --kimi-color-positive: #30a46c;
+    --kimi-color-warning: #f5a524;
+    --kimi-color-accent: #2f6fed;
+    --kimi-color-on-accent: #ffffff;
+    --kimi-chart-1: #2f6fed;
+    --kimi-chart-2: #e5484d;
+    --kimi-chart-3: #30a46c;
+    --kimi-chart-4: #8e4ec6;
+    --kimi-chart-5: #8a9199;
+    --kimi-space-1: 4px; --kimi-space-2: 8px; --kimi-space-3: 12px; --kimi-space-4: 16px;
+    --kimi-space-5: 20px; --kimi-space-6: 24px; --kimi-space-7: 32px;
+    --kimi-radius-small: 4px; --kimi-radius-chip: 6px; --kimi-radius-button: 8px;
+    --kimi-radius-input: 10px; --kimi-radius-panel: 12px; --kimi-radius-large: 16px; --kimi-radius-full: 999px;
+    --t-micro: 60ms; --t-fast: 120ms; --t-normal: 200ms; --t-slow: 300ms;
+    --ease-out: cubic-bezier(.2,.8,.4,1); --ease-in: cubic-bezier(.6,0,.8,.4); --ease-standard: cubic-bezier(.4,0,.2,1);
+  }
+  html, body { margin: 0; padding: 0; background: #fafbfc; }
+  .kimi-segmented { display: inline-flex; gap: 4px; background: var(--kimi-color-surface-muted); padding: 3px; border-radius: var(--kimi-radius-chip); }
+  .kimi-chip { border: 1px solid var(--kimi-color-border); background: var(--kimi-color-surface-raised); color: var(--kimi-color-text-secondary); padding: 4px 12px; border-radius: var(--kimi-radius-chip); cursor: pointer; font-size: 13px; line-height: 18px; transition: border-color var(--t-fast); }
+  .kimi-chip:hover { border-color: var(--kimi-color-text-primary); }
+  .kimi-chip[aria-pressed="true"], .kimi-chip[aria-selected="true"] { background: var(--kimi-color-text-primary); color: #ffffff; border-color: var(--kimi-color-text-primary); }
+  .kimi-input { border: 1px solid var(--kimi-color-border); border-radius: var(--kimi-radius-input); padding: 6px 12px; font-size: 14px; background: var(--kimi-color-surface-raised); color: var(--kimi-color-text-primary); outline: none; transition: border-color var(--t-fast); }
+  .kimi-input:focus { border-color: var(--kimi-color-text-primary); }
+  .kimi-button { border: 1px solid transparent; border-radius: var(--kimi-radius-button); padding: 6px 14px; font-size: 14px; cursor: pointer; transition: border-color var(--t-fast); }
+  .kimi-button--secondary { background: var(--kimi-color-surface-raised); border-color: var(--kimi-color-border); color: var(--kimi-color-text-primary); }
+  .kimi-button--ghost { background: transparent; color: var(--kimi-color-text-secondary); }
+  .kimi-button:hover { border-color: var(--kimi-color-text-primary); }
+  .eh-root {
+    font-family: var(--kimi-font-sans, sans-serif);
+    max-width: 860px;
+    margin: 0 auto;
+    padding-block-start: var(--kimi-space-4);
+    padding-inline: var(--kimi-space-4);
+    color: var(--kimi-color-text-primary);
+  }
+  .eh-root button, .eh-root input { font: inherit; }
+  .eh-root svg text { font-family: var(--kimi-font-sans, sans-serif); }
+
+  .eh-head { margin-bottom: var(--kimi-space-3); }
+  .eh-title { font-size: 20px; font-weight: 500; line-height: 1.3; }
+  .eh-meta { color: var(--kimi-color-text-tertiary); font-size: 12px; margin-top: 4px; }
+
+  .eh-toolbar { display: flex; gap: var(--kimi-space-2); align-items: center; flex-wrap: wrap; margin-bottom: var(--kimi-space-2); }
+  .eh-toolbar .kimi-segmented { flex-shrink: 0; }
+  .eh-search { flex: 1; min-width: 140px; }
+
+  .eh-list { overflow-y: auto; max-height: 540px; padding-right: 2px; }
+  .eh-card {
+    border: 1px solid var(--kimi-color-border);
+    border-radius: var(--kimi-radius-panel, 12px);
+    padding: var(--kimi-space-3) var(--kimi-space-4);
+    margin-bottom: var(--kimi-space-2);
+  }
+  .eh-card-top { display: flex; align-items: baseline; gap: var(--kimi-space-2); flex-wrap: wrap; }
+  .eh-concept { font-size: 16px; font-weight: 500; }
+  .eh-en { font-size: 12px; color: var(--kimi-color-text-tertiary); }
+  .eh-tag {
+    font-size: 12px; padding: 2px 8px; border-radius: var(--kimi-radius-chip, 6px);
+    background: var(--kimi-color-surface-muted); color: var(--kimi-color-text-secondary);
+    white-space: nowrap;
+  }
+  .eh-tag--c { background: var(--kimi-color-surface-strong); color: var(--kimi-color-text-primary); }
+  .eh-tag--g0 { background: color-mix(in srgb, var(--kimi-chart-1) 12%, transparent); }
+  .eh-tag--g1 { background: color-mix(in srgb, var(--kimi-chart-3) 12%, transparent); }
+  .eh-tag--g2 { background: color-mix(in srgb, var(--kimi-chart-4) 12%, transparent); }
+  .eh-tag--g3 { background: color-mix(in srgb, var(--kimi-chart-2) 12%, transparent); }
+  .eh-principle { font-size: 13px; color: var(--kimi-color-text-secondary); margin-top: 2px; }
+  .eh-def {
+    margin-top: var(--kimi-space-2);
+    background: var(--kimi-color-surface-muted);
+    border-radius: 8px; padding: var(--kimi-space-2) var(--kimi-space-3);
+    font-size: 14px; line-height: 22px;
+  }
+  .eh-def-label { display: block; font-size: 12px; color: var(--kimi-color-text-tertiary); margin-bottom: 2px; }
+  .eh-figure {
+    margin-top: var(--kimi-space-2); border: 1px solid var(--kimi-color-border);
+    border-radius: 8px; padding: var(--kimi-space-2);
+  }
+  .eh-plain { margin-top: var(--kimi-space-2); font-size: 14px; line-height: 22px; color: var(--kimi-color-text-primary); }
+  .eh-ex { margin-top: var(--kimi-space-2); font-size: 13px; line-height: 20px; color: var(--kimi-color-text-secondary); }
+  .eh-ex b { font-weight: 500; color: var(--kimi-color-text-primary); }
+
+  /* graph */
+  .eh-graph-scroll { overflow-x: auto; }
+  .eh-node rect { fill: var(--kimi-color-surface-raised); stroke: var(--kimi-color-border); cursor: pointer; transition: stroke var(--t-fast, 120ms); }
+  .eh-node text { font-size: 11px; fill: var(--kimi-color-text-primary); pointer-events: none; }
+  .eh-node:hover rect { stroke: var(--kimi-color-text-primary); }
+  .eh-node.is-active rect { stroke: var(--kimi-color-text-primary); stroke-width: 1.5; }
+  .eh-edge { stroke: var(--kimi-color-border); fill: none; stroke-width: 1; }
+  .eh-edge.is-active { stroke: var(--kimi-color-text-primary); stroke-width: 1.5; }
+  .eh-col-label { font-size: 12px; fill: var(--kimi-color-text-tertiary); }
+  .eh-detail {
+    margin-top: var(--kimi-space-2); border: 1px solid var(--kimi-color-border);
+    border-radius: var(--kimi-radius-panel, 12px); padding: var(--kimi-space-3) var(--kimi-space-4);
+    font-size: 14px; line-height: 22px;
+  }
+  .eh-detail-title { font-weight: 500; margin-bottom: 4px; }
+  .eh-detail-rel { color: var(--kimi-color-text-secondary); font-size: 13px; padding: 3px 0; border-top: 1px dashed var(--kimi-color-border); }
+  .eh-detail-rel:first-of-type { border-top: none; }
+  .eh-hint { font-size: 12px; color: var(--kimi-color-text-tertiary); margin-bottom: var(--kimi-space-2); }
+
+  /* flashcards */
+  .eh-flash-wrap { display: flex; flex-direction: column; align-items: center; gap: var(--kimi-space-3); padding-top: var(--kimi-space-2); }
+  .eh-scene { perspective: 1200px; width: 100%; max-width: 520px; }
+  .eh-flip { position: relative; width: 100%; height: 300px; transform-style: preserve-3d; transition: transform var(--t-normal, 200ms) var(--ease-standard, ease); cursor: pointer; }
+  .eh-flip.is-flipped { transform: rotateY(180deg); }
+  .eh-face {
+    position: absolute; inset: 0; backface-visibility: hidden;
+    border: 1px solid var(--kimi-color-border); border-radius: var(--kimi-radius-panel, 12px);
+    padding: var(--kimi-space-4); display: flex; flex-direction: column; gap: var(--kimi-space-2);
+    overflow-y: auto; background: var(--kimi-color-surface);
+  }
+  .eh-face--back { transform: rotateY(180deg); }
+  .eh-flash-concept { font-size: 22px; font-weight: 500; margin: auto 0; text-align: center; }
+  .eh-flash-en { text-align: center; color: var(--kimi-color-text-tertiary); font-size: 13px; }
+  .eh-flash-label { font-size: 12px; color: var(--kimi-color-text-tertiary); }
+  .eh-flash-def { font-size: 15px; line-height: 24px; }
+  .eh-flash-plain { font-size: 13px; line-height: 20px; color: var(--kimi-color-text-secondary); }
+  .eh-flash-controls { display: flex; align-items: center; gap: var(--kimi-space-2); flex-wrap: wrap; justify-content: center; }
+  .eh-flash-count { color: var(--kimi-color-text-tertiary); font-size: 13px; min-width: 48px; text-align: center; font-variant-numeric: tabular-nums; }
+
+  .eh-empty { color: var(--kimi-color-text-tertiary); font-size: 14px; padding: var(--kimi-space-6) 0; text-align: center; }
+  .eh-hidden { display: none; }
+  .eh-footer { margin-top: var(--kimi-space-5); padding-top: var(--kimi-space-3); border-top: 1px solid var(--kimi-color-border); color: var(--kimi-color-text-quaternary); font-size: 12px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="eh-root">
+  <div class="eh-head">
+    <div class="eh-title">经济学原理自学手册</div>
+    <div class="eh-meta" id="ehMeta"></div>
+  </div>
+
+  <div class="eh-toolbar">
+    <div class="kimi-segmented" role="tablist" aria-label="学习模式">
+      <button class="kimi-chip" data-view="browse" aria-selected="true">浏览</button>
+      <button class="kimi-chip" data-view="graph" aria-selected="false">关联图谱</button>
+      <button class="kimi-chip" data-view="flash" aria-selected="false">记忆卡片</button>
+    </div>
+    <input class="kimi-input eh-search" id="ehSearch" type="search" placeholder="搜索概念、定义或关键词…">
+  </div>
+
+  <div id="viewBrowse">
+    <div class="eh-toolbar" id="ehChapChips"></div>
+    <div class="eh-toolbar" id="ehGroupChips"></div>
+    <div class="eh-list" id="ehList"></div>
+  </div>
+
+  <div id="viewGraph" class="eh-hidden">
+    <div class="eh-toolbar" id="ehGraphChapChips"></div>
+    <div class="eh-hint">点击节点，查看该知识点及相关联的概念（含跨章关联）。</div>
+    <div class="eh-graph-scroll" id="ehGraph"></div>
+    <div class="eh-detail eh-hidden" id="ehDetail"></div>
+  </div>
+
+  <div id="viewFlash" class="eh-hidden">
+    <div class="eh-flash-wrap">
+      <div class="eh-scene">
+        <div class="eh-flip" id="ehFlip">
+          <div class="eh-face" id="ehFaceFront"></div>
+          <div class="eh-face eh-face--back" id="ehFaceBack"></div>
+        </div>
+      </div>
+      <div class="eh-flash-controls">
+        <button class="kimi-button kimi-button--secondary" id="ehPrev">上一张</button>
+        <span class="eh-flash-count" id="ehCount"></span>
+        <button class="kimi-button kimi-button--secondary" id="ehNext">下一张</button>
+        <button class="kimi-button kimi-button--ghost" id="ehShuffle">洗牌</button>
+      </div>
+    </div>
+  </div>
+  <div class="eh-footer">基于 N. 格里高利·曼昆《经济学原理》（第 8 版）整理 · 仅供个人学习使用</div>
+</div>
+
+<script>
+const DATA = {
+  meta: { title: "经济学原理自学手册", book: "经济学原理（第 8 版）", author: "N. 格里高利·曼昆", updated: "2026-09-28", chapter_count: 2, point_count: 28 },
+  chapters: [
+    {
+      id: 1, title: "经济学十大原理", short: "十大原理", en_title: "Ten Principles of Economics", part: "第 1 篇 导言",
+      groups: ["导言", "人们如何做出决策", "人们如何相互影响", "整体经济如何运行"],
+      points: [
+        { id:"ch1-01", group:"导言", principle:null, concept:"稀缺性", en:"Scarcity",
+          definition:"社会资源的有限性。",
+          explain:"人的欲望几乎无穷无尽，但土地、劳动、资本这些用于生产物品与服务的资源是有限的。正因为“想要的多、拥有的少”，社会和个人才必须不断做选择——稀缺性是整个经济学存在的原因，也是一切经济问题的出发点。",
+          example:"一块土地用来种粮食，就不能同时用来盖工厂；你的一小时用来刷手机，就不能同时用来读书。", tags:["基础概念","全书基石"] },
+        { id:"ch1-02", group:"导言", principle:null, concept:"经济学", en:"Economics",
+          definition:"研究社会如何管理自己的稀缺资源。",
+          explain:"所谓“管理”稀缺资源，其实是在回答三个问题：资源归谁使用、由谁生产、生产成果分给谁。个体、家庭、企业、政府每时每刻都在回答这三个问题，经济学就是研究这些选择背后规律的学问。",
+          example:"大学把有限的教育经费投向实验室还是教学楼？家庭把积蓄用于买房还是教育？这些都是经济学研究的资源配置问题。", tags:["基础概念","学科定义"] },
+        { id:"ch1-03", group:"人们如何做出决策", principle:"原理一：人们面临权衡取舍", concept:"权衡取舍", en:"Trade-offs",
+          definition:"为了得到一件东西，通常不得不放弃另一件东西。",
+          explain:"资源有限决定了选择必然有代价。“天下没有免费的午餐”说的就是权衡取舍：多得到一个目标，就要在另一个目标上让步。认清取舍，是做任何经济决策前的第一课。",
+          example:"经典取舍“大炮与黄油”：多造军火（大炮）就要少产民用品（黄油）；环境监管越严，企业成本越高、产出和就业可能越少。", tags:["十大原理","决策"] },
+        { id:"ch1-04", group:"人们如何做出决策", principle:"原理一：人们面临权衡取舍", concept:"效率与平等", en:"Efficiency and Equality",
+          definition:"效率是社会从它的稀缺资源中得到最大利益；平等是将这些利益平均地分配给社会成员。",
+          explain:"效率问的是“蛋糕能不能做得更大”，平等问的是“蛋糕分得均不均”。二者往往此消彼长：把蛋糕全奖励给最能干的人，效率可能很高但不平等；用大锅饭平均分配，人人有份却可能养懒汉、蛋糕变小。政策设计经常在这两者之间摇摆。",
+          example:"所得税累进税率（高收入缴更多税用于转移支付）追求更多平等，但可能削弱人们多工作的激励，从而损失一部分效率。", tags:["十大原理","政策目标"] },
+        { id:"ch1-05", group:"人们如何做出决策", principle:"原理二：某种东西的成本是为得到它所放弃的东西", concept:"机会成本", en:"Opportunity Cost",
+          definition:"为了得到某种东西所必须放弃的东西。",
+          explain:"成本不只是你花出去的钱。上大学除了学费，还要算上四年时间里你本可以去工作挣的钱；看一场电影的成本，是这段时间你能做的第二有价值的事。算清机会成本，才算真正算清了成本。",
+          example:"一名高中毕业生面临选择：上大学四年（学费 + 放弃的工作收入约数十万元），或直接就业。其中放弃的工作收入就是上大学的机会成本的重要组成部分。", tags:["十大原理","成本","高频考点"] },
+        { id:"ch1-06", group:"人们如何做出决策", principle:"原理三：理性人考虑边际量", concept:"理性人", en:"Rational People",
+          definition:"系统而有目的地尽最大努力实现其目标的人。",
+          explain:"经济学假设多数人是有目的、会算计的：给定目标，会尽量用最优方式去实现。这里的“理性”不等于道德高尚或永远正确，只表示“会用成本—收益的方式系统地做选择”。",
+          example:"一个想攒钱的人会比较每种消费的必要性；一家企业会权衡每多生产一件产品带来的收益与成本。", tags:["十大原理","行为假设"] },
+        { id:"ch1-07", group:"人们如何做出决策", principle:"原理三：理性人考虑边际量", concept:"边际变动", en:"Marginal Change",
+          definition:"对现有行动计划的微小增量调整。",
+          explain:"理性人做决策时比较的不是“全部 vs 零”，而是“再多一点”的收益和成本：边际收益大于边际成本，就值得多走一步；反之就该停。水很便宜而钻石很贵，就是因为多一杯水的边际效用很低，多一颗钻石的边际效用很高（“钻石与水的悖论”）。",
+          example:"航空公司决定是否以低价卖给候补乘客：多载一名乘客的边际成本只是一份餐食和一点燃料，边际收益是票价——只要票价高于边际成本，卖就是划算的。", tags:["十大原理","决策工具","高频考点"] },
+        { id:"ch1-08", group:"人们如何做出决策", principle:"原理四：人们会对激励做出反应", concept:"激励", en:"Incentives",
+          definition:"引起一个人做出某种行为的某种东西（例如惩罚或奖励的预期）。",
+          explain:"当收益或成本发生变化时，人们会改变行为。激励是连接“政策”与“结果”的桥梁——政策设计者必须预判激励的改变会带来什么后果，有时还会撞上意想不到的副作用。",
+          example:"安全带法律降低了司机出车祸时的死亡率，却可能因为司机觉得更安全而开车更莽撞，反而增加了行人的伤亡——激励改变了司机的边际行为。", tags:["十大原理","政策分析"] },
+        { id:"ch1-09", group:"人们如何相互影响", principle:"原理五：贸易能使每个人状况更好", concept:"专业化与贸易", en:"Specialization and Trade",
+          definition:"贸易使每个人可以专门从事自己有优势的活动，并相互交换，从而使各方的状况都更好。",
+          explain:"贸易不是零和游戏（你赢我输），而是双赢：每个人专注做自己相对擅长的事，再用市场交换彼此需要的东西，整体产出和每个人的享受都会超过“什么都自给自足”的状态。家庭和国与国之间道理相同。",
+          example:"牧牛人和种土豆的农民可以分工：牧民多吃土豆、农夫多吃牛肉，双方只要按各自擅长生产并交换，吃的总量都比各自单干时更多。", tags:["十大原理","国际贸易"] },
+        { id:"ch1-10", group:"人们如何相互影响", principle:"原理六：市场通常是组织经济活动的一种好方法", concept:"市场经济", en:"Market Economy",
+          definition:"当许多企业和家庭在物品与服务市场上相互交易时，通过它们的分散决策来配置资源的经济。",
+          explain:"没有一个中央指挥者告诉每家企业生产什么、每个人买什么，但千百万个分散的交易决策，却能协调出令人惊讶的秩序：需要什么，价格就会引导资源流向哪里。价格既是信号（告诉你什么稀缺），又是激励（让你据此行动）。",
+          example:"某地突然流行骑行，自行车涨价：涨价向厂商发出“多生产”的信号，也向消费者发出“省着买”的信号——资源自动流向最需要的地方。", tags:["十大原理","市场机制"] },
+        { id:"ch1-11", group:"人们如何相互影响", principle:"原理六：市场通常是组织经济活动的一种好方法", concept:"看不见的手", en:"The Invisible Hand",
+          definition:"价格指引买者与卖者达到利己行为的结果，在大多数情况下实现了整个社会福利的最大化。",
+          explain:"亚当·斯密在《国富论》中的著名比喻：每个参与者只为自己谋利，却仿佛在一只“看不见的手”引导下，不知不觉促进了社会整体的利益。这只“手”就是价格体系。",
+          example:"面包师烤面包不是为了行善，而是为了赚钱；但他要赚钱就得做出人们爱吃的面包——利己动机客观上满足了大众需求。", tags:["思想史","市场机制"] },
+        { id:"ch1-12", group:"人们如何相互影响", principle:"原理七：政府有时可以改善市场结果（制度前提）", concept:"产权", en:"Property Rights",
+          definition:"个人拥有并控制稀缺资源的能力。",
+          explain:"市场要运转，前提是交易双方确信自己付出和得到的东西属于自己。如果产权得不到保障——偷抢不算违法、合同可以不认——人们就不敢生产和交易，看不见的手也会失灵。因此需要政府（法院、警察）来界定和保护产权。",
+          example:"一个农民不会在一块随时可能被侵占的土地上播种；一项发明如果任何人都能免费抄走，发明人就没有研发的激励。", tags:["制度基础","政府角色"] },
+        { id:"ch1-13", group:"人们如何相互影响", principle:"原理七：政府有时可以改善市场结果", concept:"市场失灵", en:"Market Failure",
+          definition:"市场本身不能有效配置资源的情况。",
+          explain:"看不见的手虽然强大，但并非万能。当出现外部性或市场势力时，市场结果会偏离社会最优，这时政府的干预有可能改善局面。注意“有时”二字——干预是否真能改善，取决于政策设计得好不好。",
+          example:"工厂排污让周边居民受害，但污染成本没有体现在产品价格里，市场产量就会偏高——这是典型的市场失灵。", tags:["十大原理","政府角色","高频考点"] },
+        { id:"ch1-14", group:"人们如何相互影响", principle:"原理七：政府有时可以改善市场结果（原因一）", concept:"外部性", en:"Externality",
+          definition:"一个人的行为对旁观者福利的影响。",
+          explain:"当某个行为的成本或收益“溢出”到没有参与交易的第三方身上，价格就失真了：做坏事的人不用买单（负外部性，如污染），做好事的人拿不到回报（正外部性，如教育、疫苗）。这是市场失灵最重要的原因之一。",
+          example:"汽车尾气损害路人的健康，尾气制造者却没有为此付费；打疫苗不仅保护自己，也阻断了传染链条，旁人因此受益。", tags:["市场失灵","高频考点"] },
+        { id:"ch1-15", group:"人们如何相互影响", principle:"原理七：政府有时可以改善市场结果（原因二）", concept:"市场势力", en:"Market Power",
+          definition:"单个（或一小群）经济活动者对市场价格有显著影响的能力。",
+          explain:"完全竞争假设买卖双方都只是价格的接受者；但如果某家企业大到能控制供给、操纵价格（垄断），它就可以通过限产抬价让自己获利、损害消费者——市场的效率再次被破坏，需要政府介入（如反垄断）。",
+          example:"某地区唯一的供水公司若不受监管，可以把水价抬到远高于成本的水平，居民别无选择只能接受。", tags:["市场失灵","垄断"] },
+        { id:"ch1-16", group:"整体经济如何运行", principle:"原理八：一国的生活水平取决于它生产物品与服务的能力", concept:"生产率", en:"Productivity",
+          definition:"每一单位劳动投入所生产的物品与服务数量。",
+          explain:"国家之间贫富差距的根源，不是货币多寡或剥削多少，而是生产率：一个工人一小时能生产多少东西。要提高生活水平，长期唯一的途径是提高生产率——靠资本积累、教育（人力资本）和技术进步。",
+          example:"美国工人平均工资高，是因为美国工人人均产出高；一个农民开联合收割机一小时耕的地，超过几十个人工一天的工作量。", tags:["十大原理","增长","高频考点"] },
+        { id:"ch1-17", group:"整体经济如何运行", principle:"原理九：政府发行过多货币时，物价上升", concept:"通货膨胀", en:"Inflation",
+          definition:"经济中物价总水平的上升。",
+          explain:"钱印多了，而物品与服务没有同比例增加，同样一笔钱能买到的东西就变少了——物价普遍上涨。所以长期通货膨胀的根本原因是货币供给增长过快。恶性通货膨胀（每月物价上涨 50% 以上）会摧毁货币体系和经济秩序。",
+          example:"1920 年代德国魏玛共和国为支付巨额开支疯狂印钞，物价一度几天翻一番，人们推着一车现金买一块面包。", tags:["十大原理","货币","宏观"] },
+        { id:"ch1-18", group:"整体经济如何运行", principle:"原理十：社会面临通货膨胀与失业之间的短期权衡取舍", concept:"通胀与失业的短期权衡", en:"Short-run trade-off between inflation and unemployment",
+          definition:"在短期中，降低通货膨胀往往要以更高的失业为代价，而要减少失业往往需要容忍更高的通货膨胀（菲利普斯曲线）。",
+          explain:"短期内，货币放水能刺激企业扩大生产、多雇工人（失业下降），但物价随后也会上涨；紧缩货币能压住物价，却会拖累生产和就业。这种此消彼长只在短期成立——长期中通胀与失业之间并不存在稳定的替代关系。",
+          example:"经济衰退时，央行降息放水，企业订单回暖、重新招工，失业率下降；经济过热时反向操作，为给物价降温而容忍一段较高的失业。", tags:["十大原理","宏观","菲利普斯曲线"] }
+      ]
+    },
+    {
+      id: 2, title: "像经济学家一样思考", short: "像经济学家一样思考", en_title: "Thinking Like an Economist", part: "第 1 篇 导言",
+      groups: ["作为科学家", "作为政策顾问", "为什么意见分歧"],
+      points: [
+        { id:"ch2-01", group:"作为科学家", principle:null, concept:"科学方法", en:"The Scientific Method",
+          definition:"客观地建立并检验理论的方法：观察事件、提出理论，再收集数据进行观察以检验理论。",
+          explain:"经济学家和物理学家用的是同一套打法：先看世界怎么回事，提出解释，再用数据验证。区别在于经济学家没法做实验室可控实验——不能让历史重演一遍——只能靠历史留下的“自然实验”数据来检验，这让经济学更像侦探工作。",
+          example:"研究“提高最低工资是否减少就业”时，经济学家会比较最低工资调整前后、或调整了与没调整的州之间的就业数据，用事实检验理论。", tags:["方法论","科学方法"] },
+        { id:"ch2-02", group:"作为科学家", principle:null, concept:"假设的作用", en:"The Role of Assumptions",
+          definition:"假设可以使世界更容易理解：通过略去某些细节，使复杂问题变得可处理；不同的问题需要不同的假设。",
+          explain:"假设是经济分析的“地图”——画国际航线图时把地球当平面没问题，画城市导航图就绝不能忽略街道。好的假设不是越真实越好，而是对该问题“恰到好处”：抓住要害、略去噪音。选错假设，结论就会南辕北辙。",
+          example:"研究两国贸易影响时可假设运输成本为零；但研究香烟税对消费的影响时，必须假设消费者收入不变，否则分不清消费变化是价格引起的还是收入引起的。", tags:["方法论","假设"] },
+        { id:"ch2-03", group:"作为科学家", principle:null, concept:"经济模型", en:"Economic Models",
+          definition:"由图形和方程式组成、建立在假设之上、略去无关细节的简化图景。",
+          explain:"和生物课的塑料人体模型一个道理：没有皮肤毛发，但能看清骨骼内脏。模型不追求逼真，追求抓住要害。评价一个模型的标准不是“像不像现实”，而是“有没有用”——能否帮助我们理解现实。",
+          example:"气象模型无法模拟每一朵云，但能预报降雨；本章的两个经典模型是循环流量图和生产可能性边界。", tags:["方法论","模型"] },
+        { id:"ch2-04", group:"作为科学家", principle:null, concept:"循环流量图", en:"The Circular-Flow Diagram",
+          definition:"一个说明货币如何通过市场在家庭与企业之间流动的直观经济模型。",
+          explain:"把整个经济简化成两个角色（家庭、企业）和两个市场（物品与服务市场、生产要素市场）：内圈是实物流——家庭把劳动、土地、资本卖给企业，企业把物品与服务卖给家庭；外圈是货币流，方向与实物相反。注意买卖角色在两个市场里对调：家庭在物品市场上是买者，在要素市场上是卖者。",
+          example:"你上班拿工资：在要素市场上你是卖者（卖劳动），拿到钱后去超市：在物品市场上你是买者。你的工资和消费支出正是外圈货币流的一环。",
+          figure:"circular-flow", tags:["模型","图形","高频考点"] },
+        { id:"ch2-05", group:"作为科学家", principle:null, concept:"生产可能性边界", en:"The Production Possibilities Frontier (PPF)",
+          definition:"表示在可得到的生产要素与生产技术既定时，一个经济所能生产的两种物品的各种产量组合的图形。",
+          explain:"想象一个经济只生产电脑和小麦：把所有资源用于电脑能生产 300 台，全部用于小麦能生产 500 吨，介于两者之间的组合连成一条线。要点有四：①边界上的点有效率，边界内可达到但存在浪费，边界外现有条件达不到；②边界向外凸出——资源不是万能的，越改产机会成本越大（机会成本递增）；③边界的斜率就是机会成本；④技术进步或要素增加使边界外移，就是经济增长。",
+          example:"一块地原来全部种小麦，改种第一批葡萄时用的是最适合葡萄藤的地，损失很小；越往后改，动用的地越不适合葡萄，每增一吨葡萄要放弃的小麦越多。",
+          figure:"ppf", tags:["模型","图形","高频考点"] },
+        { id:"ch2-06", group:"作为科学家", principle:null, concept:"微观经济学与宏观经济学", en:"Microeconomics and Macroeconomics",
+          definition:"微观经济学是研究家庭和企业如何做出决策，以及它们如何在市场上相互交易的学科；宏观经济学是研究整体经济现象，包括通货膨胀、失业和经济增长的学科。",
+          explain:"微观用“显微镜”看单个买家、卖家、单个市场；宏观用“卫星图”看总量——全国的物价、就业和产出。两者是互补关系：宏观现象由无数微观行为汇聚而成。",
+          example:"研究一家餐馆如何定价属于微观；研究全国物价为什么普遍上涨（通胀）属于宏观。", tags:["学科分支"] },
+        { id:"ch2-07", group:"作为政策顾问", principle:null, concept:"实证分析与规范分析", en:"Positive versus Normative Analysis",
+          definition:"实证表述是关于世界是什么样的声明（描述性，可以通过数据证实或证伪）；规范表述是关于世界应该是什么样的声明（规范性，依赖价值观和伦理判断）。",
+          explain:"这是经济学最重要的“分工”：实证回答“会怎样”，交给数据和科学；规范回答“该不该”，交给价值观和政治。经济学家能说“提高最低工资会使低技能就业减少 X%”，但“所以政府该不该提高最低工资”超出了科学能裁决的范围——取决于你认为效率和平等哪个更重要。",
+          example:"“租金管制会导致住房短缺”是实证表述（可检验）；“政府不应该干预房租”是规范表述（价值判断）。", tags:["方法论","高频考点","政策"] },
+        { id:"ch2-08", group:"作为政策顾问", principle:null, concept:"政策建议为何不总被采纳", en:"Why Advisers' Advice Is Not Always Followed",
+          definition:"政策制定者在决策时除了经济分析，还必须权衡选票、游说集团、媒体舆论与行政约束等因素。",
+          explain:"经济学家的分析只是决策的“输入”之一。政客追求的是连任和选票，某项经济上最优的政策（如取消关税）可能损害关键选民或利益集团，于是被搁置或修改。看清这一点，就不会对“明明对的政策没人做”感到意外。",
+          example:"多数经济学家主张自由贸易，但受进口竞争冲击行业的工人集中且善于游说，政府往往仍选择加征关税保护。", tags:["政策","现实世界"] },
+        { id:"ch2-09", group:"为什么意见分歧", principle:null, concept:"意见分歧的来源", en:"Why Economists Disagree",
+          definition:"经济学家意见分歧主要来自两方面：科学判断不同（对经济的实际运行方式判断不一），以及价值观不同（规范层面的目标不同）。",
+          explain:"第一类分歧是“事实之争”：理论大家都认，但对参数大小判断不同——比如最低工资提高后失业会增加多快、多大幅度，经验证据并不完全一致。第二类分歧是“目标之争”：事实摆在桌面上没有争议，但有人优先效率、有人优先平等，政策结论自然相反。",
+          example:"同样认同“减税能刺激投资”，乐观者认为刺激效果大（支持减税），谨慎者认为效果小且加剧赤字（反对减税）——这是科学判断之争。", tags:["方法论","争议"] },
+        { id:"ch2-10", group:"为什么意见分歧", principle:null, concept:"共识多于分歧", en:"Perception versus Reality",
+          definition:"在大多数核心经济问题上，经济学家的意见实际上高度一致，公开的分歧常被媒体和公众放大。",
+          explain:"“十个经济学家有十一种意见”是流行印象，但现实是：在租金管制弊大于利、自由贸易利大于弊、排污收费优于行政命令等问题上，经济学家罕见地立场一致。媒体偏爱报道争论，沉默的共识没人转播——记住“分歧是例外，共识是常态”。",
+          example:"调查反复显示，绝大多数经济学家反对租金管制和贸易壁垒——这些政策之所以存在，不是因为经济学家有分歧，而是因为政治约束。", tags:["方法论","争议"] }
+      ]
+    }
+  ],
+  links: [
+    { from:"ch1-01", to:"ch1-02", relation:"稀缺性引出经济学的研究对象" },
+    { from:"ch1-01", to:"ch1-03", relation:"资源稀缺是权衡取舍的根源" },
+    { from:"ch1-03", to:"ch1-04", relation:"效率与平等是典型的一对取舍" },
+    { from:"ch1-03", to:"ch1-05", relation:"取舍的代价用机会成本来度量" },
+    { from:"ch1-06", to:"ch1-07", relation:"理性人按边际量做决策" },
+    { from:"ch1-07", to:"ch1-05", relation:"边际成本本质上就是多一单位的机会成本" },
+    { from:"ch1-08", to:"ch1-07", relation:"激励通过改变边际收益与边际成本来起作用" },
+    { from:"ch1-12", to:"ch1-10", relation:"受保护的产权是市场经济运转的前提" },
+    { from:"ch1-11", to:"ch1-10", relation:"看不见的手是市场经济的价格机制" },
+    { from:"ch1-10", to:"ch1-09", relation:"市场让专业化分工者相互交易" },
+    { from:"ch1-14", to:"ch1-13", relation:"外部性是市场失灵的两大原因之一" },
+    { from:"ch1-15", to:"ch1-13", relation:"市场势力是市场失灵的两大原因之一" },
+    { from:"ch1-13", to:"ch1-12", relation:"政府介入的前提：先保障产权，再纠正失灵" },
+    { from:"ch1-18", to:"ch1-17", relation:"权衡取舍的一方就是通货膨胀" },
+    { from:"ch1-08", to:"ch1-04", relation:"再分配政策要考虑对激励的影响（效率—平等取舍）" },
+    { from:"ch2-01", to:"ch2-02", relation:"科学方法依靠假设把复杂现实变得可分析" },
+    { from:"ch2-03", to:"ch2-02", relation:"模型建立在假设之上" },
+    { from:"ch2-03", to:"ch2-04", relation:"循环流量图是经典经济模型" },
+    { from:"ch2-03", to:"ch2-05", relation:"生产可能性边界也是经典经济模型" },
+    { from:"ch2-01", to:"ch2-07", relation:"科学方法要求客观，对应可检验的实证分析" },
+    { from:"ch2-09", to:"ch2-07", relation:"分歧来源之一正是规范层面的价值观差异" },
+    { from:"ch2-07", to:"ch2-08", relation:"建议基于实证与规范分析，但政治决策还考虑选票等因素" },
+    { from:"ch2-09", to:"ch2-10", relation:"分歧常被放大：共识其实多于分歧" },
+    { from:"ch2-05", to:"ch1-05", relation:"PPF 的斜率就是机会成本（跨章关联）" },
+    { from:"ch2-05", to:"ch1-04", relation:"边界上的点正是第一章所说的“效率”（跨章关联）" },
+    { from:"ch2-05", to:"ch1-16", relation:"边界向外移动，就是生产率的提高（经济增长，跨章关联）" },
+    { from:"ch2-07", to:"ch1-04", relation:"规范分歧常源于效率与平等的不同取舍（跨章关联）" },
+    { from:"ch2-06", to:"ch1-17", relation:"宏观经济学研究的正是通胀、失业与增长等总量现象（跨章关联）" }
+  ]
+};
+
+const FIGURES = {
+  "circular-flow": "<svg viewBox='0 0 560 300' width='100%' style='display:block'><defs><marker id='cfa2' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='context-stroke'/></marker></defs><rect x='25' y='115' width='100' height='70' rx='10' fill='var(--kimi-color-surface-raised)' stroke='var(--kimi-color-border)'/><text x='75' y='154' text-anchor='middle' font-size='15' fill='var(--kimi-color-text-primary)'>家庭</text><rect x='435' y='115' width='100' height='70' rx='10' fill='var(--kimi-color-surface-raised)' stroke='var(--kimi-color-border)'/><text x='485' y='154' text-anchor='middle' font-size='15' fill='var(--kimi-color-text-primary)'>企业</text><rect x='195' y='12' width='170' height='42' rx='10' fill='color-mix(in srgb, var(--kimi-chart-1) 10%, transparent)' stroke='var(--kimi-color-border)'/><text x='280' y='38' text-anchor='middle' font-size='13' fill='var(--kimi-color-text-primary)'>物品与服务市场</text><rect x='195' y='246' width='170' height='42' rx='10' fill='color-mix(in srgb, var(--kimi-chart-3) 10%, transparent)' stroke='var(--kimi-color-border)'/><text x='280' y='272' text-anchor='middle' font-size='13' fill='var(--kimi-color-text-primary)'>生产要素市场</text><path d='M 118 122 Q 160 62 205 44' fill='none' stroke='var(--kimi-color-text-primary)' stroke-width='1.2' marker-end='url(#cfa2)'/><text x='112' y='80' font-size='11' fill='var(--kimi-color-text-secondary)'>支出（钱）</text><path d='M 355 44 Q 400 62 442 122' fill='none' stroke='var(--kimi-color-text-primary)' stroke-width='1.2' marker-end='url(#cfa2)'/><text x='398' y='80' font-size='11' fill='var(--kimi-color-text-secondary)'>销售收入（钱）</text><path d='M 442 178 Q 400 238 355 256' fill='none' stroke='var(--kimi-color-text-primary)' stroke-width='1.2' marker-end='url(#cfa2)'/><text x='372' y='222' font-size='11' fill='var(--kimi-color-text-secondary)'>工资、租金、利润（钱）</text><path d='M 205 256 Q 160 238 118 178' fill='none' stroke='var(--kimi-color-text-primary)' stroke-width='1.2' marker-end='url(#cfa2)'/><text x='104' y='222' font-size='11' fill='var(--kimi-color-text-secondary)'>收入（钱）</text><path d='M 128 168 Q 172 228 215 250' fill='none' stroke='var(--kimi-color-text-tertiary)' stroke-width='1.2' stroke-dasharray='5 4' marker-end='url(#cfa2)'/><text x='96' y='206' font-size='11' fill='var(--kimi-color-text-tertiary)'>劳动、土地、资本</text><path d='M 345 250 Q 388 228 432 168' fill='none' stroke='var(--kimi-color-text-tertiary)' stroke-width='1.2' stroke-dasharray='5 4' marker-end='url(#cfa2)'/><text x='352' y='206' font-size='11' fill='var(--kimi-color-text-tertiary)'>生产要素</text><path d='M 425 128 Q 388 82 348 50' fill='none' stroke='var(--kimi-color-text-tertiary)' stroke-width='1.2' stroke-dasharray='5 4' marker-end='url(#cfa2)'/><text x='368' y='100' font-size='11' fill='var(--kimi-color-text-tertiary)'>物品与服务</text><path d='M 212 50 Q 172 82 135 128' fill='none' stroke='var(--kimi-color-text-tertiary)' stroke-width='1.2' stroke-dasharray='5 4' marker-end='url(#cfa2)'/><text x='124' y='100' font-size='11' fill='var(--kimi-color-text-tertiary)'>物品与服务</text><text x='16' y='24' font-size='11' fill='var(--kimi-color-text-quaternary)'>实线＝货币流　虚线＝实物流（方向相反）</text></svg>",
+  "ppf": "<svg viewBox='0 0 560 340' width='100%' style='display:block'><path d='M 60 300 L 540 300 M 60 300 L 60 30' stroke='var(--kimi-color-text-primary)' stroke-width='1.2'/><path d='M 60 40 C 100 44, 128 52, 152 57 C 196 67, 220 78, 244 92 C 292 117, 314 134, 336 153 C 382 178, 408 200, 428 222 C 456 254, 494 278, 520 300' fill='none' stroke='var(--kimi-chart-1)' stroke-width='2'/><circle cx='244' cy='92' r='4' fill='var(--kimi-color-text-primary)'/><text x='254' y='88' font-size='12' fill='var(--kimi-color-text-primary)'>A（有效率）</text><circle cx='152' cy='170' r='4' fill='var(--kimi-color-text-secondary)'/><path d='M 152 170 L 152 300 M 152 170 L 60 170' stroke='var(--kimi-color-text-tertiary)' stroke-width='1' stroke-dasharray='4 3'/><text x='162' y='164' font-size='12' fill='var(--kimi-color-text-secondary)'>E（可达到但浪费）</text><text x='476' y='150' font-size='12' fill='var(--kimi-color-text-tertiary)'>达不到的区域</text><text x='545' y='322' font-size='12' text-anchor='end' fill='var(--kimi-color-text-primary)'>小麦（吨）</text><text x='70' y='46' font-size='12' fill='var(--kimi-color-text-primary)'>电脑（台）</text><text x='530' y='292' font-size='11' text-anchor='end' fill='var(--kimi-color-text-tertiary)'>500</text><text x='66' y='292' font-size='11' fill='var(--kimi-color-text-tertiary)'>300</text><text x='60' y='330' font-size='11' fill='var(--kimi-color-text-quaternary)'>边界向外凸出：机会成本递增 · 斜率＝机会成本 · 边界外移＝经济增长</text></svg>"
+};
+
+const CHAPTERS = DATA.chapters;
+const POINTS = CHAPTERS.flatMap(c => c.points.map(p => Object.assign({ chapter: c.id, chapter_short: c.short }, p)));
+const SHORT = {};
+POINTS.forEach(p => SHORT[p.id] = p.concept.length > 7 ? p.concept.slice(0, 7) : p.concept);
+SHORT["ch2-08"] = "建议为何不总被采纳";
+SHORT["ch2-10"] = "共识多于分歧";
+SHORT["ch2-18"] = "通胀-失业权衡";
+SHORT["ch1-18"] = "通胀-失业权衡";
+const byId = {}; POINTS.forEach(p => byId[p.id] = p);
+const GROUP_COLOR = { "导言":0, "人们如何做出决策":1, "人们如何相互影响":2, "整体经济如何运行":3, "作为科学家":1, "作为政策顾问":2, "为什么意见分歧":3 };
+
+document.getElementById("ehMeta").textContent =
+  DATA.meta.book + " · " + DATA.meta.author + " · 已入库 " + DATA.meta.chapter_count + " 章 / " + DATA.meta.point_count + " 个知识点";
+
+/* ---------- view switching ---------- */
+const viewBtns = document.querySelectorAll(".eh-toolbar .kimi-chip[data-view]");
+const views = { browse: document.getElementById("viewBrowse"), graph: document.getElementById("viewGraph"), flash: document.getElementById("viewFlash") };
+viewBtns.forEach(btn => btn.addEventListener("click", () => {
+  viewBtns.forEach(b => b.setAttribute("aria-selected", b === btn ? "true" : "false"));
+  Object.entries(views).forEach(([k, el]) => el.classList.toggle("eh-hidden", k !== btn.dataset.view));
+}));
+
+/* ---------- browse ---------- */
+let browseChapter = "all", activeGroup = "全部";
+const chapChips = document.getElementById("ehChapChips");
+["全部章节"].concat(CHAPTERS.map(c => "第 " + c.id + " 章")).forEach(c => {
+  const b = document.createElement("button");
+  b.className = "kimi-chip"; b.textContent = c; b.setAttribute("aria-pressed", c === "全部章节" ? "true" : "false");
+  b.addEventListener("click", () => {
+    browseChapter = c === "全部章节" ? "all" : parseInt(c.replace("第 ","").replace(" 章",""));
+    activeGroup = "全部";
+    chapChips.querySelectorAll(".kimi-chip").forEach(x => x.setAttribute("aria-pressed", x.textContent === c ? "true" : "false"));
+    renderGroupChips(); renderList();
+  });
+  chapChips.appendChild(b);
+});
+
+const groupChips = document.getElementById("ehGroupChips");
+function renderGroupChips(){
+  const groups = ["全部"].concat(browseChapter === "all"
+    ? Array.from(new Set(POINTS.map(p => p.group)))
+    : CHAPTERS.find(c => c.id === browseChapter).groups);
+  groupChips.innerHTML = "";
+  groups.forEach(g => {
+    const b = document.createElement("button");
+    b.className = "kimi-chip"; b.textContent = g; b.setAttribute("aria-pressed", g === activeGroup ? "true" : "false");
+    b.addEventListener("click", () => {
+      activeGroup = g;
+      groupChips.querySelectorAll(".kimi-chip").forEach(x => x.setAttribute("aria-pressed", x.textContent === g ? "true" : "false"));
+      renderList();
+    });
+    groupChips.appendChild(b);
+  });
+}
+
+function esc(s){ const d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
+
+function renderList(){
+  const q = document.getElementById("ehSearch").value.trim().toLowerCase();
+  const list = document.getElementById("ehList");
+  const filtered = POINTS.filter(p => {
+    if (browseChapter !== "all" && p.chapter !== browseChapter) return false;
+    if (activeGroup !== "全部" && p.group !== activeGroup) return false;
+    if (!q) return true;
+    return [p.concept, p.en, p.definition, p.explain, p.example, (p.tags||[]).join(" ")].join(" ").toLowerCase().includes(q);
+  });
+  if (!filtered.length) { list.innerHTML = '<div class="eh-empty">没有匹配的知识点</div>'; return; }
+  list.innerHTML = filtered.map(p => {
+    const gi = GROUP_COLOR[p.group] != null ? GROUP_COLOR[p.group] : 0;
+    return '<div class="eh-card">' +
+      '<div class="eh-card-top"><span class="eh-tag eh-tag--c">第 ' + p.chapter + ' 章 · ' + esc(p.chapter_short) + '</span>' +
+      '<span class="eh-tag eh-tag--g' + gi + '">' + esc(p.group) + '</span>' +
+      '<span class="eh-concept">' + esc(p.concept) + '</span>' +
+      '<span class="eh-en">' + esc(p.en) + '</span></div>' +
+      (p.principle ? '<div class="eh-principle">' + esc(p.principle) + '</div>' : '') +
+      '<div class="eh-def"><span class="eh-def-label">书中定义</span>' + esc(p.definition) + '</div>' +
+      (p.figure && FIGURES[p.figure] ? '<div class="eh-figure">' + FIGURES[p.figure] + '</div>' : '') +
+      '<div class="eh-plain">' + esc(p.explain) + '</div>' +
+      '<div class="eh-ex"><b>例子</b>　' + esc(p.example) + '</div>' +
+      '</div>';
+  }).join("");
+}
+document.getElementById("ehSearch").addEventListener("input", renderList);
+renderGroupChips();
+renderList();
+
+/* ---------- graph ---------- */
+let graphChapter = 1;
+const graphChapChips = document.getElementById("ehGraphChapChips");
+CHAPTERS.forEach(c => {
+  const b = document.createElement("button");
+  b.className = "kimi-chip"; b.textContent = "第 " + c.id + " 章";
+  b.setAttribute("aria-pressed", c.id === graphChapter ? "true" : "false");
+  b.addEventListener("click", () => {
+    graphChapter = c.id;
+    graphChapChips.querySelectorAll(".kimi-chip").forEach(x => x.setAttribute("aria-pressed", x.textContent === b.textContent ? "true" : "false"));
+    buildGraph();
+  });
+  graphChapChips.appendChild(b);
+});
+
+function buildGraph(){
+  const ch = CHAPTERS.find(c => c.id === graphChapter);
+  const pts = ch.points;
+  const nCol = ch.groups.length;
+  const W = nCol === 4 ? 620 : 650;
+  const H = 400;
+  const colX = [];
+  for (let i = 0; i < nCol; i++) colX.push(60 + (W - 120) * i / (nCol - 1));
+  const cols = ch.groups.map((g,i) => pts.filter(p => p.group === g));
+  const pos = {};
+  cols.forEach((arr, ci) => {
+    const n = arr.length, gap = Math.min(52, (H - 130) / Math.max(n - 1, 1));
+    const start = 56 + (H - 110 - gap * (n - 1)) / 2;
+    arr.forEach((p, i) => { pos[p.id] = { x: colX[ci], y: n === 1 ? start + (H - 110) / 2 : start + i * gap }; });
+  });
+
+  const inCh = id => id in pos;
+  let svg = '<svg width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '">';
+  ch.groups.forEach((label, i) => { svg += '<text class="eh-col-label" x="' + colX[i] + '" y="30" text-anchor="middle">' + esc(label) + '</text>'; });
+
+  DATA.links.forEach(l => {
+    if (!inCh(l.from) || !inCh(l.to)) return;
+    const a = pos[l.from], b = pos[l.to];
+    const dx = Math.abs(b.x - a.x), dy = b.y - a.y;
+    const cx = (a.x + b.x) / 2, cy = (a.y + b.y) / 2 + (dx < 20 ? (dy >= 0 ? 42 : -42) : dy * 0.12);
+    svg += '<path class="eh-edge" data-edge="' + l.from + '|' + l.to + '" d="M ' + a.x + ' ' + a.y + ' Q ' + cx + ' ' + cy + ' ' + b.x + ' ' + b.y + '"/>';
+  });
+
+  pts.forEach(p => {
+    const pt = pos[p.id];
+    svg += '<g class="eh-node" data-id="' + p.id + '" transform="translate(' + pt.x + ',' + pt.y + ')">' +
+      '<rect x="-66" y="-16" width="132" height="32" rx="16"/>' +
+      '<text x="0" y="4" text-anchor="middle">' + esc(SHORT[p.id]) + '</text></g>';
+  });
+  svg += '</svg>';
+  document.getElementById("ehGraph").innerHTML = svg;
+  document.getElementById("ehDetail").classList.add("eh-hidden");
+
+  const detail = document.getElementById("ehDetail");
+  document.querySelectorAll(".eh-node").forEach(node => {
+    node.addEventListener("click", () => {
+      const id = node.dataset.id;
+      const already = node.classList.contains("is-active");
+      document.querySelectorAll(".eh-node.is-active").forEach(n => n.classList.remove("is-active"));
+      document.querySelectorAll(".eh-edge.is-active").forEach(e => e.classList.remove("is-active"));
+      if (already) { detail.classList.add("eh-hidden"); return; }
+      node.classList.add("is-active");
+      const rels = DATA.links.filter(l => l.from === id || l.to === id);
+      rels.forEach(l => {
+        const el = document.querySelector('[data-edge="' + l.from + '|' + l.to + '"]');
+        if (el) el.classList.add("is-active");
+      });
+      const p = byId[id];
+      let html = '<div class="eh-detail-title">' + esc(p.concept) + ' <span class="eh-en">' + esc(p.en) + '</span>　<span class="eh-tag eh-tag--c">第 ' + p.chapter + ' 章</span></div>' +
+                 '<div>' + esc(p.definition) + '</div>';
+      rels.forEach(l => {
+        const otherId = l.from === id ? l.to : l.from;
+        const dir = l.from === id ? "→" : "←";
+        const cross = byId[otherId].chapter !== p.chapter ? "（跨章）" : "";
+        html += '<div class="eh-detail-rel">' + dir + ' <b>' + esc(SHORT[otherId]) + '</b>' + cross + '：' + esc(l.relation.replace("（跨章关联）","")) + '</div>';
+      });
+      detail.innerHTML = html;
+      detail.classList.remove("eh-hidden");
+    });
+  });
+}
+buildGraph();
+
+/* ---------- flashcards ---------- */
+let deck = POINTS.map((_, i) => i), cardIdx = 0, flipped = false;
+const flipEl = document.getElementById("ehFlip");
+function renderCard(){
+  const p = POINTS[deck[cardIdx]];
+  flipped = false; flipEl.classList.remove("is-flipped");
+  document.getElementById("ehFaceFront").innerHTML =
+    '<div><span class="eh-tag eh-tag--c">第 ' + p.chapter + ' 章</span> <span class="eh-tag">' + esc(p.group) + '</span></div>' +
+    '<div class="eh-flash-concept">' + esc(p.concept) + '</div>' +
+    '<div class="eh-flash-en">' + esc(p.en) + '</div>' +
+    (p.principle ? '<div class="eh-flash-en">' + esc(p.principle) + '</div>' : '');
+  document.getElementById("ehFaceBack").innerHTML =
+    '<div><span class="eh-flash-label">书中定义</span><div class="eh-flash-def">' + esc(p.definition) + '</div></div>' +
+    '<div><span class="eh-flash-label">通俗理解</span><div class="eh-flash-plain">' + esc(p.explain) + '</div></div>' +
+    '<div><span class="eh-flash-label">例子</span><div class="eh-flash-plain">' + esc(p.example) + '</div></div>';
+  document.getElementById("ehCount").textContent = (cardIdx + 1) + " / " + deck.length;
+}
+flipEl.addEventListener("click", () => { flipped = !flipped; flipEl.classList.toggle("is-flipped", flipped); });
+document.getElementById("ehPrev").addEventListener("click", () => { cardIdx = (cardIdx - 1 + deck.length) % deck.length; renderCard(); });
+document.getElementById("ehNext").addEventListener("click", () => { cardIdx = (cardIdx + 1) % deck.length; renderCard(); });
+document.getElementById("ehShuffle").addEventListener("click", () => {
+  for (let i = deck.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [deck[i], deck[j]] = [deck[j], deck[i]]; }
+  cardIdx = 0; renderCard();
+});
+renderCard();
+</script>
+</body>
+</html>
